@@ -1,11 +1,77 @@
 import Header from "@/app/(components)/layout/Header";
 import Footer from "@/app/(components)/layout/Footer";
 import HomePage from "@/app/(components)/pages/homepage/HomePage";
+import { fetchData, fetchTranslations } from "@/app/(components)/lib/fetchData";
+import { generateKeywordsFromWords } from "@/app/(components)/lib/toSlug";
 
-export default function Home() {
+//"Получение данных с REST_API"
+const getData = async (code) => {
+  const header = await fetchData(code, "menu"); // данные для header
+  const main = await fetchData(code, "main_page"); // данные для homePage
+  const settings = await fetchData(code, "settings"); // данные для metadata
+  const translations = await fetchTranslations(code); // данные для языка
+  return { header, main, settings, translations };
+};
+//
+
+export async function generateMetadata({ params }) {
+  try {
+    const { code } = await params;
+    const { settings } = await getData(code, "settings");
+    // const { translations } = await getData(code);
+    const baseUrl = `${process.env.NEXT_PUBLIC_SITE_NAME}`;
+    const pictureBaseUrl = `${process.env.NEXT_PUBLIC_PICTURE}`;
+    const logoUrl = `${pictureBaseUrl}/${settings?.logo}`;
+    const faviconUrl = `${pictureBaseUrl}/${settings?.favicon}`;
+    const generatedKeyword = generateKeywordsFromWords(settings?.description);
+
+    return {
+      title: `${settings?.title}`,
+      description: `${settings.description}`,
+      keywords: generatedKeyword,
+      icons: {
+        icon: faviconUrl,
+        apple: faviconUrl,
+      },
+      openGraph: {
+        title: `${settings?.title}`,
+        description: `${settings.description}`,
+        keywords: generatedKeyword,
+        url: `${baseUrl}/${code}`,
+        siteName: `${baseUrl}/${code}`,
+        type: "website",
+        image: logoUrl,
+        images: [
+          {
+            url: logoUrl,
+            secure_url: logoUrl,
+            width: 100,
+            heigth: 60,
+            type: "image/png",
+            alt: settings?.title,
+          },
+        ],
+      },
+    };
+  } catch (error) {
+    if (error instanceof Error) {
+      return new Response(error.message, { status: 500 });
+    }
+    return new Response("Internal Server Error", { status: 500 });
+  }
+}
+
+export default async function page({ params }) {
+  const { code } = await params;
+  const { header, main, settings, translations } = await getData(code);
+
   return (
     <>
-      <Header />
+      <Header
+        dataHeaderLogo={settings?.logo}
+        dataHeaderNav={header}
+        code={code}
+      />
       <HomePage />
       <Footer />
     </>
