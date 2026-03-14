@@ -1,10 +1,10 @@
 "use client";
-
 import { useCallback, useState } from "react";
 import Lang from "../Lang/Lang";
 import MaxWidth from "../shared_components/MaxWidth";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Header = ({ dataHeaderLogo, dataHeaderNav, code }) => {
   const [open, setOpen] = useState(false);
@@ -31,7 +31,12 @@ const Header = ({ dataHeaderLogo, dataHeaderNav, code }) => {
       <MaxWidth customClass="flex items-center justify-between">
         <div className="flex items-center gap-[1.1rem]">
           <Link href={"/"}>
-            <img src="/img/header/header-logo.svg" alt="" />
+            <Image
+              width={282}
+              height={48}
+              src="/img/header/header-logo.svg"
+              alt="logo"
+            />
             {/* <img src={`${process.env.NEXT_PUBLIC_PICTURE}/${dataHeaderLogo}`} alt="" /> */}
           </Link>
         </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const Slider = ({ dataSliderText, dataSliderImg }) => {
@@ -16,7 +17,9 @@ const Slider = ({ dataSliderText, dataSliderImg }) => {
 
       <div className="relative">
         <div className="bg-[#011E41] right-[10.2rem] top-[-8rem] rounded-[9rem] py-[5.5rem] px-[3.2rem] absolute">
-          <img
+          <Image
+            width={100}
+            height={100}
             src={`${process.env.NEXT_PUBLIC_PICTURE}/${dataSliderImg?.logo}`}
             alt="logo"
           />
@@ -28,7 +31,12 @@ const Slider = ({ dataSliderText, dataSliderImg }) => {
           />
           <Link href={dataSliderImg?.video_url} target="_blank">
             <div className="absolute top-[44%] left-[46%] bg-[#D5BA8C] py-[2.8rem] px-[2.8rem] rounded-[8rem] shadow-gold">
-              <img src={"/img/homepage/slider/slider-play.svg"} alt="play" />
+              <Image
+                width={24}
+                height={24}
+                src={"/img/homepage/slider/slider-play.svg"}
+                alt="play"
+              />
             </div>
           </Link>
         </div>

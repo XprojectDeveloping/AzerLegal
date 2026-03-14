@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MaxWidth from "../shared_components/MaxWidth";
+import Image from "next/image";
 
 const Footer = ({ footerData }) => {
   const footerSocialIcons = [
@@ -35,7 +36,12 @@ const Footer = ({ footerData }) => {
           <div className="flex justify-between">
             <div>
               <Link href={"/"}>
-                <img src="\img/footer/footer-logo.svg" alt="" />
+                <Image
+                  width={282}
+                  height={48}
+                  src="\img/footer/footer-logo.svg"
+                  alt=""
+                />
               </Link>
             </div>
             <div className="flex gap-[2rem] items-center">
@@ -51,7 +57,12 @@ const Footer = ({ footerData }) => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img src={item.img} alt={item.alt} />
+                      <Image
+                        width={32}
+                        height={32}
+                        src={item.img}
+                        alt={item.alt}
+                      />
                     </Link>
                   </div>
                 );
