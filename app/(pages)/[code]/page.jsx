@@ -4,16 +4,13 @@ import HomePage from "@/app/(components)/pages/homepage/HomePage";
 import { fetchData, fetchTranslations } from "@/app/(components)/lib/fetchData";
 import { generateKeywordsFromWords } from "@/app/(components)/lib/toSlug";
 
-//"Получение данных с REST_API"
 const getData = async (code) => {
-  const header = await fetchData(code, "menu"); // данные для header
-  const main = await fetchData(code, "main_page"); // данные для homePage
-  const settings = await fetchData(code, "settings"); // данные для metadata
-  const translations = await fetchTranslations(code); // данные для языка
+  const header = await fetchData(code, "menu");
+  const main = await fetchData(code, "main_page");
+  const settings = await fetchData(code, "settings");
+  const translations = await fetchTranslations(code);
   return { header, main, settings, translations };
 };
-//
-
 export async function generateMetadata({ params }) {
   try {
     const { code } = await params;
@@ -46,7 +43,7 @@ export async function generateMetadata({ params }) {
             url: logoUrl,
             secure_url: logoUrl,
             width: 100,
-            heigth: 60,
+            height: 60,
             type: "image/png",
             alt: settings?.title,
           },
@@ -63,17 +60,17 @@ export async function generateMetadata({ params }) {
 
 export default async function page({ params }) {
   const { code } = await params;
-  const { header, main, settings, translations } = await getData(code);
+  const { header, main, settings } = await getData(code);
 
   return (
     <>
       <Header
-        dataHeaderLogo={settings?.logo}
+        // dataHeaderLogo={settings?.logo}
         dataHeaderNav={header}
         code={code}
       />
-      <HomePage />
-      <Footer />
+      <HomePage dataSlider={main?.slider} />
+      <Footer footerData={settings} />
     </>
   );
 }

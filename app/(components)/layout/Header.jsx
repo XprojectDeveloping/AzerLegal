@@ -30,20 +30,46 @@ const Header = ({ dataHeaderLogo, dataHeaderNav, code }) => {
     <header className="bg-[#F4F6F6] py-[4rem]">
       <MaxWidth customClass="flex items-center justify-between">
         <div className="flex items-center gap-[1.1rem]">
-          <img src="/img/header/header-logo.svg" alt="" />
+          <Link href={"/"}>
+            <img src="/img/header/header-logo.svg" alt="" />
+            {/* <img src={`${process.env.NEXT_PUBLIC_PICTURE}/${dataHeaderLogo}`} alt="" /> */}
+          </Link>
         </div>
         <div className="">
           <nav className="flex gap-[3.2rem]">
             {dataHeaderNav?.menus &&
               dataHeaderNav?.menus?.map((item) => {
+                const hasChildren = item.children?.length > 0;
                 return (
-                  <Link
-                    className={`text-[#011E41] text-[1.4rem] font-[400] leading-[100%] ${pathName === `${item.slug_url}` ? "font-[600] text-[#D5BA8C]" : ""}`}
-                    key={item?.id}
-                    href={item?.slug_url}
-                  >
-                    {item?.name}
-                  </Link>
+                  <div key={item?.id} className="relative group">
+                    <Link
+                      className={`flex items-center gap-1 text-[#011E41] text-[1.4rem] font-[400] leading-[100%] ${
+                        pathName === `${item.slug_url}`
+                          ? "font-[600] text-[#D5BA8C]"
+                          : ""
+                      }`}
+                      href={item?.slug_url}
+                    >
+                      {item?.name}
+                    </Link>
+                    {hasChildren && (
+                      <div className="absolute top-full left-0 mt-1 w-52 z-50 bg-white rounded-lg shadow-lg border border-gray-100 py-1 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+                        {item.children
+                          .sort((a, b) => a.sort_order - b.sort_order)
+                          .map((child) => {
+                            return (
+                              <Link
+                                key={child.id}
+                                href={`/${child.slug_url}`}
+                                className="block px-4 py-2 text-[1.4rem] text-[#011E41] hover:bg-gray-50 hover:text-[#D5BA8C] transition-colors"
+                              >
+                                {child.name}
+                              </Link>
+                            );
+                          })}
+                      </div>
+                    )}
+                  </div>
                 );
               })}
           </nav>
