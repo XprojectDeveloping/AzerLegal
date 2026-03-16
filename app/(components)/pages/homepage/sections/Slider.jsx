@@ -1,17 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Slider = ({ dataSliderText, dataSliderImg }) => {
+const Slider = ({ SliderText, SliderImg }) => {
   return (
     <section className="my-[8rem]">
       <div className="mb-[8rem]">
-        <div
-          className="mb-[4rem] text-[4.8rem] text-[#011E41] font-[700] leading-[100%]"
-          dangerouslySetInnerHTML={{ __html: dataSliderText?.title }}
-        />
+        <h1 className="mb-[4rem] text-[4.8rem] text-[#011E41] font-[700] leading-[100%]">
+          {SliderText?.title}
+        </h1>
         <div
           className="text-[1.4rem] text-[#011E41] font-[400]"
-          dangerouslySetInnerHTML={{ __html: dataSliderText?.text }}
+          dangerouslySetInnerHTML={{ __html: SliderText?.text }}
         />
       </div>
 
@@ -20,16 +19,16 @@ const Slider = ({ dataSliderText, dataSliderImg }) => {
           <Image
             width={100}
             height={100}
-            src={`${process.env.NEXT_PUBLIC_PICTURE}/${dataSliderImg?.logo}`}
+            src={`${process.env.NEXT_PUBLIC_PICTURE}/${SliderImg?.logo}`}
             alt="logo"
           />
         </div>
         <div className="abosulte">
           <img
-            src={`${process.env.NEXT_PUBLIC_PICTURE}/${dataSliderImg?.video_background}`}
+            src={`${process.env.NEXT_PUBLIC_PICTURE}/${SliderImg?.video_background}`}
             alt="video"
           />
-          <Link href={dataSliderImg?.video_url} target="_blank">
+          <Link href={SliderImg?.video_url} target="_blank">
             <div className="absolute top-[44%] left-[46%] bg-[#D5BA8C] py-[2.8rem] px-[2.8rem] rounded-[8rem] shadow-gold">
               <Image
                 width={24}

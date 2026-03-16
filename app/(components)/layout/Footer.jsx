@@ -71,7 +71,11 @@ const Footer = ({ footerData }) => {
           </div>
         </MaxWidth>
       </div>
-      <div></div>
+      <div className="bg-[#D5BA8C] text-center">
+        <p className="p-[1.2rem] text-[1.2rem] text-[#011E41]">
+          {(footerData = "Bütün hüquqlar qorunur. Azerlegal 2025.")}
+        </p>
+      </div>
     </footer>
   );
 };

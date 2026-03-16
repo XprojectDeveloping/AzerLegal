@@ -69,7 +69,7 @@ export default async function page({ params }) {
         dataHeaderNav={header}
         code={code}
       />
-      <HomePage dataSlider={main?.slider} />
+      <HomePage dataSlider={main?.slider} dataProcess={main?.process} />
       <Footer footerData={settings} />
     </>
   );
