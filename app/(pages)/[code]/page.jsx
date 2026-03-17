@@ -60,7 +60,7 @@ export async function generateMetadata({ params }) {
 
 export default async function page({ params }) {
   const { code } = await params;
-  const { header, main, settings } = await getData(code);
+  const { header, main, settings, translations } = await getData(code);
 
   return (
     <>
@@ -69,7 +69,14 @@ export default async function page({ params }) {
         dataHeaderNav={header}
         code={code}
       />
-      <HomePage dataSlider={main?.slider} dataProcess={main?.process} />
+      <HomePage
+        dataSlider={main?.slider}
+        dataProcess={main?.process}
+        dataServices={main?.services}
+        dataLang={translations}
+        contactData={main?.services2}
+        code={code}
+      />
       <Footer footerData={settings} />
     </>
   );
