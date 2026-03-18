@@ -2,7 +2,7 @@ import Link from "next/link";
 import MaxWidth from "../shared_components/MaxWidth";
 import Image from "next/image";
 
-const Footer = ({ footerData }) => {
+const Footer = ({ footerData, footerData2 }) => {
   const footerSocialIcons = [
     {
       id: 1,
@@ -73,7 +73,7 @@ const Footer = ({ footerData }) => {
       </div>
       <div className="bg-[#D5BA8C] text-center">
         <p className="p-[1.2rem] text-[1.2rem] text-[#011E41]">
-          {(footerData = "Bütün hüquqlar qorunur. Azerlegal 2025.")}
+          {footerData2?.footer_text}
         </p>
       </div>
     </footer>

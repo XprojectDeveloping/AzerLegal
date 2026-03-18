@@ -7,14 +7,24 @@ const HomeContact = ({ Form, FormContactData, code }) => {
   return (
     <section className="my-[8rem]">
       <MaxWidth>
-        <div className="grid grid-cols-12 gap-[4rem]">
-          <div className="col-span-5">
+        <div className="grid grid-cols-12 items-center gap-[10rem]">
+          <div className="col-span-5 relative">
             <Image
-              width={486}
-              height={421}
+              width={1000}
+              height={500}
               src={"/img/homepage/form/form-img.png"}
               alt="form-img"
+              className="w-[inital]"
             />
+
+            <div className="absolute top-[50%] translate-y-[-50%] right-[-9%] z-[1000] bg-[#d5ba8c] p-[2.2rem] rounded-[50%]">
+              <Image
+                width={50}
+                height={50}
+                src={"/img/homepage/form/form-ico.svg"}
+                alt="contact-img"
+              />
+            </div>
           </div>
 
           <div className="flex flex-col col-span-7">

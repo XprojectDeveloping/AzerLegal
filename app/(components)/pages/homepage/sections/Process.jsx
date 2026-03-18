@@ -1,31 +1,31 @@
 import MaxWidth from "@/app/(components)/shared_components/MaxWidth";
 import Image from "next/image";
 
-const Process = ({ ProcessTitle }) => {
+const Process = ({ Process }) => {
   const processCards = [
     {
       id: 1,
-      title: ProcessTitle?.label1,
-      text: ProcessTitle?.stat2,
-      img: ProcessTitle?.icon1,
+      title: Process?.label1,
+      text: Process?.stat2,
+      img: Process?.icon1,
     },
     {
       id: 2,
-      title: ProcessTitle?.label2,
-      text: ProcessTitle?.stat3,
-      img: ProcessTitle?.icon2,
+      title: Process?.label2,
+      text: Process?.stat3,
+      img: Process?.icon2,
     },
     {
       id: 3,
-      title: ProcessTitle?.label3,
-      text: ProcessTitle?.stat3,
-      img: ProcessTitle?.icon3,
+      title: Process?.label3,
+      text: Process?.stat3,
+      img: Process?.icon3,
     },
     {
       id: 4,
-      title: ProcessTitle?.label4,
-      text: ProcessTitle?.stat4,
-      img: ProcessTitle?.icon3,
+      title: Process?.label4,
+      text: Process?.stat4,
+      img: Process?.icon3,
     },
   ];
   return (
@@ -33,12 +33,12 @@ const Process = ({ ProcessTitle }) => {
       <MaxWidth>
         <div>
           <h2 className="text-[4.8rem] text-[#011E41] font-[700] leading-[100%] mb-[4rem]">
-            {ProcessTitle?.title}
+            {Process?.title}
           </h2>
 
           <div
             className="text-[1.4rem] text-[#AAB5B8] font-[400]"
-            dangerouslySetInnerHTML={{ __html: ProcessTitle?.description }}
+            dangerouslySetInnerHTML={{ __html: Process?.description }}
           />
         </div>
 
