@@ -2,7 +2,7 @@ import MaxWidth from "@/app/(components)/shared_components/MaxWidth";
 import Image from "next/image";
 import Link from "next/link";
 
-const data = ({ data }) => {
+const Slider = ({ data }) => {
   return (
     <MaxWidth>
       <section className="my-[8rem]">
@@ -47,4 +47,4 @@ const data = ({ data }) => {
   );
 };
 
-export default data;
+export default Slider;

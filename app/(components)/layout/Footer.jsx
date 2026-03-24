@@ -2,7 +2,7 @@ import Link from "next/link";
 import MaxWidth from "../shared_components/MaxWidth";
 import Image from "next/image";
 
-const Footer = ({ footerData, footerData2 }) => {
+const Footer = ({ data, dataLang }) => {
   const footerSocialIcons = [
     {
       id: 1,
@@ -46,7 +46,7 @@ const Footer = ({ footerData, footerData2 }) => {
             </div>
             <div className="flex gap-[2rem] items-center">
               {footerSocialIcons.map((item) => {
-                const href = footerData?.[item.key];
+                const href = data?.[item.key];
 
                 if (!href) return null;
                 return (
@@ -73,7 +73,7 @@ const Footer = ({ footerData, footerData2 }) => {
       </div>
       <div className="bg-[#D5BA8C] text-center">
         <p className="p-[1.2rem] text-[1.2rem] text-[#011E41]">
-          {footerData2?.footer_text}
+          {dataLang?.footer_text}
         </p>
       </div>
     </footer>

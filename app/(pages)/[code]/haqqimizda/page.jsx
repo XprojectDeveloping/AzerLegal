@@ -67,8 +67,13 @@ export default async function page({ params }) {
   return (
     <>
       <Header dataHeaderNav={header} code={code} />
-      <About />
-      <Footer />
+      <About
+        dataLang={translations}
+        dataBanner={main?.about}
+        dataOurGoal={main?.about}
+        dataOurValues={main?.about}
+      />
+      <Footer data={settings} dataLang={translations} />
     </>
   );
 }

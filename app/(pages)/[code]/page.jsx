@@ -79,7 +79,7 @@ export default async function page({ params }) {
         dataPartners={main?.partners}
         code={code}
       />
-      <Footer footerData={settings} footerData2={translations} />
+      <Footer data={settings} dataLang={translations} />
     </>
   );
 }

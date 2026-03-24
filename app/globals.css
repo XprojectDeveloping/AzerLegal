@@ -30,4 +30,8 @@ html {
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  .card {
+    outline: 1px solid #d5ba8c;
+  }
 }
