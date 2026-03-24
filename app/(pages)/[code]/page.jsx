@@ -73,13 +73,10 @@ export default async function page({ params }) {
         dataSlider={main?.slider}
         dataProcess={main?.process}
         dataServices={main?.services}
-        dataServices2={translations}
         dataLang={translations}
         dataContact={main?.services2}
         dataNewsBlog={main?.blogs}
-        dataNewsBlog2={translations}
         dataPartners={main?.partners}
-        dataPartners2={translations}
         code={code}
       />
       <Footer footerData={settings} footerData2={translations} />

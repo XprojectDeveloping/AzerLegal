@@ -1,7 +1,7 @@
 import MaxWidth from "@/app/(components)/shared_components/MaxWidth";
 import Caroulsel from "../components/Caroulsel";
 
-const Partners = ({ partner, partner2 }) => {
+const Partners = ({ data, lang }) => {
   return (
     <section className="my-[8rem]">
       <MaxWidth>
@@ -11,11 +11,11 @@ const Partners = ({ partner, partner2 }) => {
           </h3>
           <div
             className="text-[1.4rem] text-[#AAB5B8] text-[400]"
-            dangerouslySetInnerHTML={{ __html: partner2?.blog_news_alt_text }}
+            dangerouslySetInnerHTML={{ __html: lang?.blog_news_alt_text }}
           />
         </div>
         <div>
-          <Caroulsel items={partner} />
+          <Caroulsel items={data} />
         </div>
       </MaxWidth>
     </section>

@@ -1,31 +1,31 @@
 import MaxWidth from "@/app/(components)/shared_components/MaxWidth";
 import Image from "next/image";
 
-const Process = ({ Process }) => {
+const Process = ({ data }) => {
   const processCards = [
     {
       id: 1,
-      title: Process?.label1,
-      text: Process?.stat2,
-      img: Process?.icon1,
+      title: data?.label1,
+      text: data?.stat2,
+      img: data?.icon1,
     },
     {
       id: 2,
-      title: Process?.label2,
-      text: Process?.stat3,
-      img: Process?.icon2,
+      title: data?.label2,
+      text: data?.stat3,
+      img: data?.icon2,
     },
     {
       id: 3,
-      title: Process?.label3,
-      text: Process?.stat3,
-      img: Process?.icon3,
+      title: data?.label3,
+      text: data?.stat3,
+      img: data?.icon3,
     },
     {
       id: 4,
-      title: Process?.label4,
-      text: Process?.stat4,
-      img: Process?.icon3,
+      title: data?.label4,
+      text: data?.stat4,
+      img: data?.icon3,
     },
   ];
   return (
@@ -33,17 +33,17 @@ const Process = ({ Process }) => {
       <MaxWidth>
         <div>
           <h2 className="text-[4.8rem] text-[#011E41] font-[700] leading-[100%] mb-[4rem]">
-            {Process?.title}
+            {data?.title}
           </h2>
 
           <div
             className="text-[1.4rem] text-[#AAB5B8] font-[400]"
-            dangerouslySetInnerHTML={{ __html: Process?.description }}
+            dangerouslySetInnerHTML={{ __html: data?.description }}
           />
         </div>
 
         <div className="grid grid-cols-12 my-[12rem] gap-[2.4rem]">
-          {processCards.map((item) => {
+          {processCards?.map((item) => {
             return (
               <div
                 className="col-span-3 relative items-center justify-center bg-[#F4F6F6] rounded-[0.8rem] transition process-card"

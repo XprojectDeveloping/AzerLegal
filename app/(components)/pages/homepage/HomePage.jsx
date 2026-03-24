@@ -11,22 +11,19 @@ const HomePage = ({
   dataSlider,
   dataProcess,
   dataServices,
-  dataServices2,
   dataContact,
   dataNewsBlog,
-  dataNewsBlog2,
   dataPartners,
-  dataPartners2,
   code,
 }) => {
   return (
     <main>
-      <Slider Slider={dataSlider} />
-      <Process Process={dataProcess} />
-      <Services Services={dataServices} Services2={dataServices2} />
-      <HomeContact Form={dataLang} FormContactData={dataContact} code={code} />
-      <BloqNews blogNews={dataNewsBlog} blogNews2={dataNewsBlog2} />
-      <Partners partner={dataPartners} partner2={dataPartners2} />
+      <Slider data={dataSlider} />
+      <Process data={dataProcess} />
+      <Services data={dataServices} lang={dataLang} code={code} />
+      <HomeContact data={dataContact} lang={dataLang} code={code} />
+      <BloqNews data={dataNewsBlog} lang={dataLang} />
+      <Partners data={dataPartners} lang={dataLang} />
     </main>
   );
 };

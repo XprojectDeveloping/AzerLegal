@@ -74,7 +74,8 @@ const Carousel = ({ items = [], autoPlay = true, interval = 2000 }) => {
 
   const cardWidth = 100 / VISIBLE;
   const indexOffset = currentIndex * cardWidth;
-  const dragOffset = (dragDelta / window.innerWidth) * 100;
+  const dragOffset =
+    typeof window !== "undefined" ? (dragDelta / window.innerWidth) * 100 : 0;
   const translateX = indexOffset - dragOffset;
 
   return (
