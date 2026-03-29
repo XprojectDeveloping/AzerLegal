@@ -38,6 +38,13 @@ html {
     overflow: hidden;
   }
 
+  .news-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* количество строк */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .card {
     outline: 1px solid #d5ba8c;
   }
@@ -57,4 +64,26 @@ html {
   .related-card {
     outline: 1px solid #011e41;
   }
+
+
+
+  /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d5ba8c;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #011e41;
+}
 }
