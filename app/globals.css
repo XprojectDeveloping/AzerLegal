@@ -31,7 +31,30 @@ html {
     overflow: hidden;
   }
 
+  .services-single-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* количество строк */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .card {
     outline: 1px solid #d5ba8c;
+  }
+
+  .border-card {
+    outline: 1px solid #011e41;
+  }
+
+  .border-card:hover {
+    outline: none;
+  }
+
+  .download {
+    outline: 1px solid #011e41;
+  }
+
+  .related-card {
+    outline: 1px solid #011e41;
   }
 }

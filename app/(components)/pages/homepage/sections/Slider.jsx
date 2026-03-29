@@ -35,7 +35,7 @@ const Slider = ({ data }) => {
                 <Image
                   width={24}
                   height={24}
-                  src={"/img/homepage/data/data-play.svg"}
+                  src={"/img/homepage/slider/slider-play.svg"}
                   alt="play"
                 />
               </div>

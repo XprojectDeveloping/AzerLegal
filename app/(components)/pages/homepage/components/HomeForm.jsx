@@ -4,7 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import DropDownInput from "./DropDownInput";
 import Image from "next/image";
-const HomeForm = ({ FormTranslate, FormContactData, code }) => {
+const HomeForm = ({ formTranslate, formContactData, code }) => {
   const [form, setForm] = useState({
     ad: "",
     number: "",
@@ -46,8 +46,8 @@ const HomeForm = ({ FormTranslate, FormContactData, code }) => {
         if (response?.data?.message) {
           Swal.fire({
             icon: "success",
-            title: FormTranslate?.form_send_message,
-            confirmButtonText: FormTranslate?.exit,
+            title: formTranslate?.form_send_message,
+            confirmButtonText: formTranslate?.exit,
           });
           setForm({
             service_id: "",
@@ -59,8 +59,8 @@ const HomeForm = ({ FormTranslate, FormContactData, code }) => {
       })
       .catch(() => {
         Swal.fire(
-          `${FormTranslate?.error_message}`,
-          `${FormTranslate?.form_error_message}`,
+          `${formTranslate?.error_message}`,
+          `${formTranslate?.form_error_message}`,
           "error",
         );
       });
@@ -71,7 +71,7 @@ const HomeForm = ({ FormTranslate, FormContactData, code }) => {
         <input
           type="text"
           name="ad"
-          placeholder={FormTranslate?.name_fullname}
+          placeholder={formTranslate?.name_fullname}
           id="ad"
           value={form.ad}
           onChange={handleChange}
@@ -83,18 +83,18 @@ const HomeForm = ({ FormTranslate, FormContactData, code }) => {
           id="number"
           value={form.number}
           onChange={handleChange}
-          placeholder={FormTranslate?.phone_number}
+          placeholder={formTranslate?.phone_number}
           className="w-full text-[1.4rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41]"
         />
 
         <DropDownInput
-          categoriesData={FormContactData}
-          select_services={FormTranslate?.select_services}
+          categoriesData={formContactData}
+          select_services={formTranslate?.select_services}
           onCategorySelect={handleDropSelect}
         />
 
         <button className="flex flex-row justify-center items-center gap-[1.2rem] mt-[4rem] w-full bg-[#011E41] py-[1.3rem] text-[#FFFFFF] text-[1.4rem] font-[500] transition hover:bg-[#808080]">
-          {loading ? FormTranslate?.sending_form : FormTranslate?.send_form}
+          {loading ? formTranslate?.sending_form : formTranslate?.send_form}
           <Image
             width={24}
             height={24}

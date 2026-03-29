@@ -39,8 +39,8 @@ const HomeContact = ({ data, lang, code }) => {
             </div>
             <div>
               <HomeForm
-                FormTranslate={lang}
-                FormContactData={data}
+                formTranslate={lang}
+                formContactData={data}
                 code={code}
               />
             </div>
