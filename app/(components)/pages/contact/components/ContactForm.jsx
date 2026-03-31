@@ -1,14 +1,15 @@
 "use client";
-import { useState } from "react";
 import axios from "axios";
-import Swal from "sweetalert2";
-import DropDownInput from "./DropDownInput";
 import Image from "next/image";
-const HomeForm = ({ formTranslate, formContactData, code }) => {
+import { useState } from "react";
+import Swal from "sweetalert2";
+
+const ContactForm = ({ formTranslate, formContactData, code }) => {
   const [form, setForm] = useState({
     ad: "",
     number: "",
-    service_id: "",
+    email: "",
+    message: "",
   });
   const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
@@ -25,13 +26,21 @@ const HomeForm = ({ formTranslate, formContactData, code }) => {
       setForm((prev) => ({ ...prev, [name]: cleaned }));
       return;
     }
-  };
 
-  const handleDropSelect = (selectedValue) => {
-    setForm((prevForm) => ({
-      ...prevForm,
-      service_id: parseInt(selectedValue, 10),
-    }));
+    if (name === "email") {
+      const cleaned = value.replace(/[^A-Za-z0-9@\._\-]/g, "").toLowerCase();
+      setForm((prev) => ({ ...prev, [name]: cleaned }));
+    }
+
+    if (name === "message") {
+      const maxLenght = 500;
+      const truncated = value.slice(0, maxLenght);
+
+      const cleaned = truncated.replace(/\s\s+/g, " ");
+
+      setForm((prev) => ({ ...prev, [name]: cleaned }));
+      return;
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -73,11 +82,11 @@ const HomeForm = ({ formTranslate, formContactData, code }) => {
         <input
           type="text"
           name="ad"
+          id="ad"
           maxLength={30}
           minLength={2}
           pattern="[A-Za-zА-Яа-яЁёƏəĞğİiIıÖöÜüÇçŞş\s]+"
           placeholder={formTranslate?.name_fullname}
-          id="ad"
           value={form.ad}
           onChange={handleChange}
           className="w-full text-[1.4rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41] mb-[1.6rem]"
@@ -91,13 +100,28 @@ const HomeForm = ({ formTranslate, formContactData, code }) => {
           value={form.number}
           onChange={handleChange}
           placeholder={formTranslate?.phone_number}
-          className="w-full text-[1.4rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41]"
+          className="w-full text-[1.4rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41] mb-[1.6rem]"
         />
-
-        <DropDownInput
-          categoriesData={formContactData}
-          select_services={formTranslate?.select_services}
-          onCategorySelect={handleDropSelect}
+        <input
+          type="email"
+          name="email"
+          id="number"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          maxLength={50}
+          value={form.email}
+          onChange={handleChange}
+          placeholder={formTranslate?.email}
+          className="w-full text-[1.4rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41] mb-[1.6rem]"
+        />
+        <textarea
+          name="message"
+          id="message"
+          value={form.message}
+          onChange={handleChange}
+          placeholder={formTranslate?.your_message}
+          maxLength={500}
+          rows={5}
+          className="w-full text-[1.4rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41]"
         />
 
         <button className="flex flex-row justify-center items-center gap-[1.2rem] mt-[4rem] w-full bg-[#011E41] py-[1.3rem] text-[#FFFFFF] text-[1.4rem] font-[500] transition hover:bg-[#808080]">
@@ -114,4 +138,4 @@ const HomeForm = ({ formTranslate, formContactData, code }) => {
   );
 };
 
-export default HomeForm;
+export default ContactForm;

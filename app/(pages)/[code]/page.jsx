@@ -15,7 +15,6 @@ export async function generateMetadata({ params }) {
   try {
     const { code } = await params;
     const { settings } = await getData(code, "settings");
-    // const { translations } = await getData(code);
     const baseUrl = `${process.env.NEXT_PUBLIC_SITE_NAME}`;
     const pictureBaseUrl = `${process.env.NEXT_PUBLIC_PICTURE}`;
     const logoUrl = `${pictureBaseUrl}/${settings?.logo}`;
@@ -64,11 +63,7 @@ export default async function page({ params }) {
 
   return (
     <>
-      <Header
-        // dataHeaderLogo={settings?.logo}
-        dataHeaderNav={header}
-        code={code}
-      />
+      <Header dataHeaderNav={header} code={code} />
       <HomePage
         dataSlider={main?.slider}
         dataProcess={main?.process}

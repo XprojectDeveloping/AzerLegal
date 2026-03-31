@@ -14,17 +14,23 @@ const ServiceForm = ({ formTranslate, formContactData, code }) => {
   const [loading, setloading] = useState(false);
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    if (name === "ad") {
+      const cleaned = value.replace(/[^A-Za-zА-Яа-яЁёƏəĞğİiIıÖöÜüÇçŞş\s]/g, "");
+      setForm((prev) => ({ ...prev, [name]: cleaned }));
+      return;
+    }
+
+    if (name === "soyad") {
+      const cleaned = value.replace(/[^A-Za-zА-Яа-яЁёƏəĞğİiIıÖöÜüÇçŞş\s]/g, "");
+      setForm((prev) => ({ ...prev, [name]: cleaned }));
+      return;
+    }
+
     if (name === "number") {
-      const newValue = value.replace(/[^0-9]/g, "");
-      setForm({
-        ...form,
-        [name]: newValue,
-      });
-    } else {
-      setForm({
-        ...form,
-        [name]: value,
-      });
+      const cleaned = value.replace(/[^\+\d\s\-\(\)]/g, "");
+      setForm((prev) => ({ ...prev, [name]: cleaned }));
+      return;
     }
   };
 
@@ -48,7 +54,6 @@ const ServiceForm = ({ formTranslate, formContactData, code }) => {
             soyAd: "",
             number: "",
           });
-          setloading(false);
         }
       })
       .catch(() => {
@@ -57,6 +62,9 @@ const ServiceForm = ({ formTranslate, formContactData, code }) => {
           `${formTranslate?.form_error_message}`,
           "error",
         );
+      })
+      .finally(() => {
+        setloading(false);
       });
   };
   return (
@@ -74,6 +82,9 @@ const ServiceForm = ({ formTranslate, formContactData, code }) => {
           <input
             type="text"
             name="ad"
+            maxLength={30}
+            minLength={2}
+            pattern="[A-Za-zА-Яа-яЁёƏəĞğİiIıÖöÜüÇçŞş\s]+"
             placeholder={formTranslate?.name_fullname}
             id="ad"
             value={form.ad}
@@ -84,6 +95,8 @@ const ServiceForm = ({ formTranslate, formContactData, code }) => {
           <input
             type="text"
             name="soyad"
+            maxLength={30}
+            pattern="[A-Za-zА-Яа-яЁёƏəĞğİiIıÖöÜüÇçŞş\s]+"
             id="soyad"
             value={form?.soyad}
             onChange={handleChange}
@@ -94,6 +107,8 @@ const ServiceForm = ({ formTranslate, formContactData, code }) => {
           <input
             type="number"
             name="number"
+            attern="[\+\d\s\-\(\)]+"
+            maxLength={50}
             id="number"
             value={form?.number}
             onChange={handleChange}

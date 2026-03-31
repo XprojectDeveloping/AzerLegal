@@ -70,7 +70,7 @@ export default async function page({ params, searchParams }) {
       <News
         data={main?.data}
         code={code}
-        lang={translations}
+        datalang={translations}
         pagination={main?.pagination}
       />
       <Footer data={settings} dataLang={translations} />
