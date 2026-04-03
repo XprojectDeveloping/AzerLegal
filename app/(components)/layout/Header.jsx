@@ -1,12 +1,13 @@
 "use client";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Lang from "../Lang/Lang";
 import MaxWidth from "../shared_components/MaxWidth";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import BurgerMenu from "../shared_components/BurgerMenu";
 
-const Header = ({ dataHeaderLogo, dataHeaderNav, code }) => {
+const Header = ({ dataHeaderNav }) => {
   const [open, setOpen] = useState(false);
   const pathName = usePathname();
   let language;
@@ -26,21 +27,72 @@ const Header = ({ dataHeaderLogo, dataHeaderNav, code }) => {
   }, []);
 
   const myLang = langs?.filter(langChecker);
+
+  const [scroll, setScroll] = useState();
+  const SCROL_Y = 120;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > SCROL_Y) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const headerBurgerLinks = [
+    {
+      id: 1,
+      name: "Ana Səhifə",
+      href: "/",
+    },
+    {
+      id: 2,
+      name: "Haqqımızda",
+      href: "/haqqimizda",
+    },
+    {
+      id: 3,
+      name: "Rəhbərin Müraciəti",
+      href: "/rehberin-muracieti",
+    },
+    {
+      id: 4,
+      name: "Xidmətlər",
+      href: "/xidmetler",
+    },
+    {
+      id: 5,
+      name: "Xəbərlər",
+      href: "/xeberler",
+    },
+    {
+      id: 6,
+      name: "Əlaqə",
+      href: "/elaqe",
+    },
+  ];
+
   return (
-    <header className="bg-[#F4F6F6] py-[4rem]">
-      <MaxWidth customClass="flex items-center justify-between">
-        <div className="flex items-center gap-[1.1rem]">
+    <header
+      className={`bg-[#F4F6F6] py-[4rem] lg:py-[2.8rem] ${scroll ? "fixed top-0 left-0 right-0 z-[2000] py-[2.5rem]" : ""}`}
+    >
+      <MaxWidth customClass="flex items-center justify-between xl:mx-[3.5rem] lg:mx-[2.5rem] md:mx-[1.5rem]">
+        <div className="flex items-center">
           <Link href={"/"}>
             <Image
               width={282}
               height={48}
               src="/img/header/header-logo.svg"
               alt="logo"
+              className="lg:max-w-[25rem] md:max-w-[20rem] sm:max-w-[15rem]"
             />
-            {/* <img src={`${process.env.NEXT_PUBLIC_PICTURE}/${dataHeaderLogo}`} alt="" /> */}
           </Link>
         </div>
-        <div className="">
+        <div className="lg:hidden">
           <nav className="flex gap-[3.2rem]">
             {dataHeaderNav?.menus &&
               dataHeaderNav?.menus?.map((item) => {
@@ -80,8 +132,8 @@ const Header = ({ dataHeaderLogo, dataHeaderNav, code }) => {
           </nav>
         </div>
 
-        <div className="flex items-center gap-[2.4rem]">
-          <div className="bg-[#EAEDED] p-[0.8rem] cursor-pointer">
+        <div className="flex items-center gap-[2.4rem] sm:gap-[1.5rem]">
+          <div className="bg-[#EAEDED] p-[0.8rem] cursor-pointer sm:hidden">
             <img src={"/img/header/header-search.svg"} alt="" />
           </div>
           <Lang
@@ -89,10 +141,10 @@ const Header = ({ dataHeaderLogo, dataHeaderNav, code }) => {
             langs={langs}
             switchLang={
               open && (
-                <div className="absolute cursor-pointer mt-6 right-[10px] top-6 h-[50px] flex flex-col gap-[1rem] text-left items-center justify-center">
+                <div className="absolute cursor-pointer mt-6 right-[10px] top-6 h-[50px] flex flex-col gap-[1rem] sm:gap-[0.9rem] text-left items-center justify-center">
                   {myLang?.map((lang, index) => (
                     <button
-                      className="z-[200] text-[1.4rem] transitions overflow-hidden px-6 py-1 rounded-lg bg-[#EAEDED] "
+                      className="z-[200] text-[1.4rem] sm:text-[1.2rem] transitions overflow-hidden px-6 py-1 rounded-lg bg-[#EAEDED] "
                       key={index}
                       onClick={() => langSwitcher(lang)}
                     >
@@ -103,6 +155,10 @@ const Header = ({ dataHeaderLogo, dataHeaderNav, code }) => {
               )
             }
           />
+
+          <div className="burger-hide lg:flex">
+            <BurgerMenu items={headerBurgerLinks} />
+          </div>
         </div>
       </MaxWidth>
     </header>

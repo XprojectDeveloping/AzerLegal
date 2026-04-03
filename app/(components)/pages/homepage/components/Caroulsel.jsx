@@ -29,12 +29,12 @@ const Carousel = ({ items = [] }) => {
         {items.map((item) => {
           return (
             <SwiperSlide key={item.id}>
-              <Link href={"/"}>
+              <Link href={"/"} className="flex justify-center items-center">
                 <Image
                   width={100}
                   height={100}
                   alt="partners"
-                  className="w-full h-[20rem] bg-cover"
+                  className="w-full h-[15rem] lg:w-[300px] md:w-[250px] bg-cover"
                   src={`${process.env.NEXT_PUBLIC_PICTURE}/${item?.image}`}
                 />
               </Link>

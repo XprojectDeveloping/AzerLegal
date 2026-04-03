@@ -55,7 +55,9 @@ const DropdownInput = ({
         aria-expanded={dropdownOpen}
         aria-controls="doctors-dropdown-list"
       >
-        <h2 className="text-[1.4rem] px-[20px] py-[14px] ">{displayText}</h2>
+        <h2 className="text-[1.4rem] md:text-[1.2rem] px-[20px] py-[14px] ">
+          {displayText}
+        </h2>
         <span>
           <img
             src="/img/homepage/form/form-arrow.svg"
@@ -95,7 +97,7 @@ const DropdownInput = ({
               role="option"
               aria-selected={selectedCategoryId === cur.id}
             >
-              <h2 className="text-[1.4rem] px-[20px] py-[14px] hover:bg-[#011E41] hover:text-[#ffffff]">
+              <h2 className="text-[1.4rem] md:text-[1.2rem] px-[20px] py-[14px] hover:bg-[#011E41] hover:text-[#ffffff]">
                 {cur.title}
               </h2>
             </li>

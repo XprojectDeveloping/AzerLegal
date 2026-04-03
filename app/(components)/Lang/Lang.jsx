@@ -69,7 +69,9 @@ const Lang = ({ toggle, switchLang, langs, scrolledFromTop }) => {
         onClick={toggle}
         className="flex items-center cursor-pointer justify-center"
       >
-        <button className={`capitalize  text-[1.4rem]`}>{language}</button>
+        <button className={`capitalize text-[1.4rem] sm:text-[1.2rem]`}>
+          {language}
+        </button>
         <p className="flex pl-3">
           <FaAngleDown className="w-[25px] h-[14px]" />
         </p>
@@ -78,7 +80,7 @@ const Lang = ({ toggle, switchLang, langs, scrolledFromTop }) => {
         <div className="absolute mt-4 top-[3.2rem] w-[84px] left-[1px] flex flex-col gap-[1rem] text-left overflow-hidden items-center justify-center bg-[#fff] p-[5] rounded-[0.4rem] first">
           {selectedLangs?.map((lang, index) => (
             <button
-              className="capitalize text-[1.4rem] border-none lang_border gap-[12px] flex justify-center items-center"
+              className="capitalize text-[1.4rem] border-none lang_border gap-[1.2rem] sm:gap-[1rem] flex justify-center items-center"
               key={index}
               onClick={() => langSwitcher(lang)}
             >

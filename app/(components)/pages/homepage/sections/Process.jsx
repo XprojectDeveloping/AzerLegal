@@ -29,10 +29,10 @@ const Process = ({ data }) => {
     },
   ];
   return (
-    <section className="my-[8rem]">
-      <MaxWidth>
+    <section className="my-[8rem] xl:my-[6rem] lg:my-[3rem] md:my-[2.5rem]">
+      <MaxWidth customClass="xl:mx-[3.5rem] lg:mx-[2.5rem] md:mx-[1.5rem]">
         <div>
-          <h2 className="text-[4.8rem] text-[#011E41] font-[700] leading-[100%] mb-[4rem]">
+          <h2 className="text-[4.8rem] xl:text-[3.8rem] md:text-[2.8rem] sm:text-[2.5rem] text-[#011E41] font-[700] leading-[100%] mb-[4rem] xl:mb-[2rem]">
             {data?.title}
           </h2>
 
@@ -42,14 +42,14 @@ const Process = ({ data }) => {
           />
         </div>
 
-        <div className="grid grid-cols-12 my-[12rem] gap-[2.4rem]">
+        <div className="grid grid-cols-12 lg:grid-cols-6 my-[12rem] xl:my-[8rem] lg:my-[6rem] md:my-[3.5rem] gap-[2.4rem] xl:gap-[5.5rem]">
           {processCards?.map((item) => {
             return (
               <div
-                className="col-span-3 relative items-center justify-center bg-[#F4F6F6] rounded-[0.8rem] transition process-card"
+                className="col-span-3 xl:col-span-6 relative items-center justify-center bg-[#F4F6F6] rounded-[0.8rem] transition process-card"
                 key={item.id}
               >
-                <div className="absolute left-[2rem] top-[-5rem] bg-[#D5BA8C] rounded-[5rem] p-[2rem]">
+                <div className="absolute left-[2rem] top-[-5rem] lg:top-[-3rem] bg-[#D5BA8C] rounded-[5rem] p-[2rem] lg:p-[1rem]">
                   <Image
                     width={40}
                     height={40}
@@ -58,8 +58,8 @@ const Process = ({ data }) => {
                   ></Image>
                 </div>
                 <div className="flex items-center pb-[2rem] pl-[2rem] pt-[6rem]">
-                  <div className="flex items-center gap-[3.9rem]">
-                    <p className="text-[4.8rem] text-[#011E41] font-[700]">
+                  <div className="flex items-center gap-[3.9rem] xl:gap-[1.9rem]">
+                    <p className="text-[4.8rem] xl:text-[3.8rem] text-[#011E41] font-[700]">
                       {item.text}
                     </p>
                     <p className="text-[1.6rem] text-[#011E41] font-[400]">

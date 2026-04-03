@@ -31,16 +31,17 @@ const Footer = ({ data, dataLang }) => {
   ];
   return (
     <footer>
-      <div className="bg-[#011E41] py-[4rem]">
-        <MaxWidth>
-          <div className="flex justify-between">
+      <div className="bg-[#011E41] py-[4rem] lg:py-[2.8rem]">
+        <MaxWidth customClass="xl:mx-[3.5rem] lg:mx-[2.5rem] md:mx-[1.5rem]">
+          <div className="flex sm:flex-col sm:items-center sm:gap-[1.8rem] justify-between">
             <div>
               <Link href={"/"}>
                 <Image
                   width={282}
                   height={48}
                   src="\img/footer/footer-logo.svg"
-                  alt=""
+                  alt="footer-logo"
+                  className="lg:max-w-[25rem] md:max-w-[20rem]"
                 />
               </Link>
             </div>

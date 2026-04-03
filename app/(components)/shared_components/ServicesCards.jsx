@@ -3,11 +3,11 @@ import Link from "next/link";
 
 const ServicesCards = ({ dataCard, code, lang, border = "" }) => {
   return (
-    <div className="grid grid-cols-12 gap-[2.4rem] pb-[8rem]">
+    <div className="grid grid-cols-12 lg:grid-cols-6 gap-[2.4rem] pb-[8rem] lg:pb-[6rem] md:pb-[3rem]">
       {dataCard?.map((item) => {
         return (
           <div
-            className={`col-span-4 ${border} flex flex-col justify-between gap-[2rem] bg-[#ffffff] hover:bg-[#D0B281] p-[2rem] rounded-[0.8rem] relative overflow-hidden group transition-colors duration-300`}
+            className={`col-span-4 xl:col-span-6 ${border} flex flex-col justify-between gap-[2rem] bg-[#ffffff] hover:bg-[#D0B281] p-[2rem] rounded-[0.8rem] relative overflow-hidden group transition-colors duration-300`}
             key={item?.id}
           >
             <Image

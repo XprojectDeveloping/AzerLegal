@@ -94,8 +94,6 @@ const ServicesSingle = ({ data, relatedData, code, lang }) => {
                     className="services-single-text text-[1.4rem] text-[#011E41]"
                     dangerouslySetInnerHTML={{ __html: item?.text }}
                   />
-
-                  {/* <Link/> */}
                 </div>
               );
             })}
