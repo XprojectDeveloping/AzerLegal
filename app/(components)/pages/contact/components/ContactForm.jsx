@@ -33,10 +33,9 @@ const ContactForm = ({ formTranslate, formContactData, code }) => {
     }
 
     if (name === "message") {
-      const maxLenght = 500;
-      const truncated = value.slice(0, maxLenght);
-
-      const cleaned = truncated.replace(/\s\s+/g, " ");
+      const maxLength = 500;
+      const truncated = value.slice(0, maxLength);
+      const cleaned = truncated;
 
       setForm((prev) => ({ ...prev, [name]: cleaned }));
       return;
@@ -114,12 +113,11 @@ const ContactForm = ({ formTranslate, formContactData, code }) => {
           className="w-full text-[1.4rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41] mb-[1.6rem]"
         />
         <textarea
-          name="message"
+          name="message"  
           id="message"
           value={form.message}
           onChange={handleChange}
           placeholder={formTranslate?.your_message}
-          maxLength={500}
           rows={5}
           className="w-full text-[1.4rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41]"
         />

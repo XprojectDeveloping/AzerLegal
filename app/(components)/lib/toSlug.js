@@ -1,7 +1,6 @@
 import he from "he";
 
 export function toSlug(str) {
-  // Azərbaycan hərflərini ingilis hərfləri ilə əvəz et
   const azToEnMap = {
     ə: "e",
     Ə: "e",
