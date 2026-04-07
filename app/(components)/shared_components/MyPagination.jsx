@@ -21,7 +21,7 @@ const MyPagination = ({ totalPage, currentPage, basePath }) => {
           aria-disabled={currentNumPage === 1}
         >
           <img
-            className="max-w-[3rem]"
+            className="max-w-[3rem] md:max-w-[2.5rem]"
             src="img/homepage/services/pagination-arrow.png"
             alt="arrow"
           />
@@ -49,7 +49,7 @@ const MyPagination = ({ totalPage, currentPage, basePath }) => {
           aria-disabled={currentNumPage === totalPage}
         >
           <img
-            className="rotate-[-180deg] max-w-[3rem]"
+            className="rotate-[-180deg] max-w-[3rem] md:max-w-[2.5rem]"
             src="img/homepage/services/pagination-arrow.png"
             alt="arrow"
           />

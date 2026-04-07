@@ -3,11 +3,11 @@ import Link from "next/link";
 
 const ServicesCards = ({ dataCard, code, lang, border = "" }) => {
   return (
-    <div className="grid grid-cols-12 lg:grid-cols-6 gap-[2.4rem] pb-[8rem] lg:pb-[6rem] md:pb-[3rem]">
+    <div className="grid grid-cols-12 xl:grid-cols-8 lg:grid-cols-4 gap-[2.4rem] pb-[8rem] xl:pb-[6rem] lg:pb-[3rem] md:pb-[2.5rem]">
       {dataCard?.map((item) => {
         return (
           <div
-            className={`col-span-4 xl:col-span-6 ${border} flex flex-col justify-between gap-[2rem] bg-[#ffffff] hover:bg-[#D0B281] p-[2rem] rounded-[0.8rem] relative overflow-hidden group transition-colors duration-300`}
+            className={`col-span-4 ${border} flex flex-col justify-between gap-[2rem] bg-[#ffffff] hover:bg-[#D0B281] p-[2rem] md:p-[1.8rem] rounded-[0.8rem] relative overflow-hidden group transition-colors duration-300`}
             key={item?.id}
           >
             <Image
@@ -18,19 +18,19 @@ const ServicesCards = ({ dataCard, code, lang, border = "" }) => {
             />
 
             <div>
-              <h3 className="text-[1.8rem] text-[#011E41] font-[700] min-h-[4.2rem] line-clamp-2 relative z-10 transition-colors duration-300">
+              <h3 className="text-[1.8rem] md:text-[1.6rem] text-[#011E41] font-[700] min-h-[4.2rem] line-clamp-2 relative z-[10] transition-colors duration-300">
                 {item?.title}
               </h3>
 
               <div
-                className="services-text text-[1.4rem] text-[#011E41] line-clamp-4 relative z-10 transition-colors duration-300 mt-[1rem]"
+                className="services-text text-[1.4rem] md:text-[1.2rem] text-[#011E41] line-clamp-4 relative z-[10] transition-colors duration-300 mt-[1rem]"
                 dangerouslySetInnerHTML={{ __html: item?.text }}
               />
             </div>
 
             {item.slug ? (
               <Link
-                className="text-[1.6rem] text-[#D5BA8C] group-hover:text-[#FFFFFF] flex flex-row items-center gap-[1.2rem] mt-auto relative z-[60] transition-colors duration-300"
+                className="text-[1.6rem] text-[#D5BA8C] group-hover:text-[#FFFFFF] flex flex-row items-center gap-[1.2rem] mt-auto relative z-[10] transition-colors duration-300"
                 href={`${code}/xidmetler/${item?.id}/${item.slug}`}
               >
                 {lang?.read_more}

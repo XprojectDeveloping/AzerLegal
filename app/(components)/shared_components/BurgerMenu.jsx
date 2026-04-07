@@ -26,7 +26,7 @@ const BurgerMenu = ({ items = [] }) => {
       <div
         className={`fixed top-0 right-0 h-full w-[250px] bg-[#ffffff]
         p-[3rem] flex flex-col gap-[2rem]
-        z-[1050] transition-transform duration-300
+        z-[2000] transition-transform duration-300
         text-[2rem]
         ${open ? "translate-x-0" : "translate-x-full"}`}
       >
@@ -37,7 +37,7 @@ const BurgerMenu = ({ items = [] }) => {
             alt="burger-close"
             src={"/img/header/header-burger-close-menu.svg"}
           />
-        </button>
+        </button> 
         <div className="flex flex-col justify-center items-center gap-[3rem]">
           {items.map((item) => {
             return (
