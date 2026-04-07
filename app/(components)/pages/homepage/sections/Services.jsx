@@ -6,7 +6,7 @@ import Link from "next/link";
 const Services = ({ data, lang, code }) => {
   return (
     <section className="bg-[#011E41]">
-      <MaxWidth customClass="xl:mx-[3.5rem] lg:mx-[2.5rem] md:mx-[1.5rem]">
+      <MaxWidth customClass="xl:max-w-none xl:mx-[3.5rem] lg:mx-[2.5rem] md:mx-[1.5rem]">
         <div className="py-[8rem] xl:py-[6rem] lg:py-[3rem] md:py-[2.5rem]">
           <div className="flex flex-row items-center justify-between mb-[4rem] xl:mb-[2rem] md:mb-[1.5rem]">
             <h3 className="text-[4.8rem] xl:text-[3.8rem] md:text-[2.8rem] sm:text-[2.5rem] text-[#D5BA8C] font-[700] ">

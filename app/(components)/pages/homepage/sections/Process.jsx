@@ -30,7 +30,7 @@ const Process = ({ data }) => {
   ];
   return (
     <section className="my-[8rem] xl:my-[6rem] lg:my-[3rem] md:my-[2.5rem]">
-      <MaxWidth customClass="xl:mx-[3.5rem] lg:mx-[2.5rem] md:mx-[1.5rem]">
+      <MaxWidth customClass="xl:max-w-none xl:mx-[3.5rem] lg:mx-[2.5rem] md:mx-[1.5rem]">
         <div>
           <h2 className="text-[4.8rem] xl:text-[3.8rem] md:text-[2.8rem] sm:text-[2.5rem] text-[#011E41] font-[700] leading-[100%] mb-[4rem] xl:mb-[2rem]">
             {data?.title}

@@ -6,7 +6,7 @@ import HomeForm from "../components/HomeForm";
 const HomeContact = ({ data, lang, code }) => {
   return (
     <section className="my-[8rem] xl:my-[6rem] lg:my-[3rem] md:my-[2.5rem]">
-      <MaxWidth customClass="xl:mx-[3.5rem] lg:mx-[2.5rem] md:mx-[1.5rem]">
+      <MaxWidth customClass="xl:max-w-none xl:mx-[3.5rem] lg:mx-[2.5rem] md:mx-[1.5rem]">
         <div className="grid grid-cols-12 sm:grid-cols-6 items-center gap-[10rem] xl:gap-[6rem]">
           <div className="col-span-5 lg:col-span-full relative lg:hidden">
             <Image
