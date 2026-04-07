@@ -58,8 +58,8 @@ const Process = ({ data }) => {
                   ></Image>
                 </div>
                 <div className="flex items-center pb-[2rem] pl-[2rem] pt-[6rem]">
-                  <div className="flex items-center gap-[3.9rem] xl:gap-[1.9rem]">
-                    <p className="text-[4.8rem] xl:text-[3.8rem] text-[#011E41] font-[700]">
+                  <div className="flex items-center gap-[3.9rem] xl:gap-[1.9rem] md:gap-[1.4rem]">
+                    <p className="text-[4.8rem] xl:text-[3.8rem] md:text-[3.5rem] text-[#011E41] font-[700]">
                       {item.text}
                     </p>
                     <p className="text-[1.6rem] text-[#011E41] font-[400]">

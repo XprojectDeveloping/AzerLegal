@@ -16,7 +16,6 @@ module.exports = {
       "3xl": {
         max: "1599px",
       },
-
       "2xl": {
         max: "1499px",
       },
