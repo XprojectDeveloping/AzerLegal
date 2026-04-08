@@ -21,7 +21,7 @@ export const fetchTranslations = async (code) => {
         cache: "no-store",
       },
     );
-    if (!res.ok) throw new Error(`Fetch failed for endpoint: ${endpoint}`);
+    if (!res.ok) throw new Error(`Fetch failed for endpoint`);
     return await res.json();
   } catch (error) {
     return null;
