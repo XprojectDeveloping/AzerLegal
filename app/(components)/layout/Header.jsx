@@ -10,13 +10,20 @@ import BurgerMenu from "../shared_components/BurgerMenu";
 const Header = ({ dataHeaderNav }) => {
   const [open, setOpen] = useState(false);
   const pathName = usePathname();
-  let language;
-  if (typeof window !== "undefined") {
-    language = localStorage.getItem("azerlegal");
-  }
+  const [language, setLanguage] = useState("az");
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const lang = localStorage.getItem("azerlegal") || "az";
+      setLanguage(lang);
+    }
+  }, []);
 
-  const langSwitcher = async () => {
+  const langSwitcher = (lang) => {
     setOpen(false);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("azerlegal", lang);
+      setLanguage(lang);
+    }
   };
   const langs = ["az", "en", "ru"];
 
@@ -28,7 +35,7 @@ const Header = ({ dataHeaderNav }) => {
 
   const myLang = langs?.filter(langChecker);
 
-  const [scroll, setScroll] = useState();
+  const [scroll, setScroll] = useState(false);
   const SCROL_Y = 120;
 
   useEffect(() => {
@@ -139,21 +146,9 @@ const Header = ({ dataHeaderNav }) => {
           <Lang
             toggle={() => setOpen(!open)}
             langs={langs}
-            switchLang={
-              open && (
-                <div className="absolute cursor-pointer mt-6 right-[10px] top-6 h-[50px] flex flex-col gap-[1rem] sm:gap-[0.9rem] text-left items-center justify-center">
-                  {myLang?.map((lang, index) => (
-                    <button
-                      className="z-[200] text-[1.4rem] sm:text-[1.2rem] transitions overflow-hidden px-6 py-1 rounded-lg bg-[#EAEDED] "
-                      key={index}
-                      onClick={() => langSwitcher(lang)}
-                    >
-                      {lang}
-                    </button>
-                  ))}
-                </div>
-              )
-            }
+            switchLang={langSwitcher}
+            open={open}
+            myLang={myLang}
           />
 
           <div className="burger-hide lg:flex">

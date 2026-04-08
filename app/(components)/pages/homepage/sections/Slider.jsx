@@ -25,7 +25,7 @@ const Slider = ({ data }) => {
               alt="logo"
             />
           </div>
-          <div className="abosulte">
+          <div className="absolute">
             <img
               src={`${process.env.NEXT_PUBLIC_PICTURE}/${data?.video_background}`}
               alt="video"
