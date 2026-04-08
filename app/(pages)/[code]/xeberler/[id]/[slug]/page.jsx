@@ -9,7 +9,7 @@ import NewsSingle from "@/app/(components)/pages/news/NewsSingle";
 
 const getData = async (code, id, slug) => {
   const header = await fetchData(code, "menu");
-  const main = await fetchData(code, `news_page/${id}/${slug}`);
+  const main = await fetchData(code, `news/${id}/${slug}`);
   const settings = await fetchData(code, "settings");
   const translations = await fetchTranslations(code);
   return { header, main, settings, translations };
@@ -71,7 +71,13 @@ export default async function page({ params }) {
   return (
     <>
       <Header dataHeaderNav={header} code={code} />
-      <NewsSingle />
+      <NewsSingle
+        data={main?.item}
+        relatedData={main?.random_news}
+        dataLang={translations}
+        id={id}
+        slug={slug}
+      />
       <Footer data={settings} dataLang={translations} />
     </>
   );

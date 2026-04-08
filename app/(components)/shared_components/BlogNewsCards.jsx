@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const BlogNewsCards = ({ dataCard, code, lang }) => {
   return (
-    <div className="grid grid-cols-12 gap-[2.4rem]">
+    <div className="grid grid-cols-12 lg:grid-cols-8 md:grid-cols-4 gap-[2.4rem]">
       {dataCard.map((item) => {
         const itemSlug = toSlug(item?.name);
         return (
@@ -17,9 +17,9 @@ const BlogNewsCards = ({ dataCard, code, lang }) => {
               height={240}
               src={"/img/news/news-img.png"}
               alt={lang?.news_text}
-              className="mb-[2rem]"
+              className="mb-[2rem] lg:w-full"
             />
-            <h3 className="text-[2rem] text-[#011E41] font-[700] mb-[2.3rem] news-title">
+            <h3 className="text-[2rem] md:text-[1.8rem] text-[#011E41] font-[700] mb-[2.3rem] md:mb-[2rem] news-title">
               {item?.name}
             </h3>
             <Link

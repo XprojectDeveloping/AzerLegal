@@ -88,7 +88,7 @@ const ContactForm = ({ formTranslate, formContactData, code }) => {
           placeholder={formTranslate?.name_fullname}
           value={form.ad}
           onChange={handleChange}
-          className="w-full text-[1.4rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41] mb-[1.6rem]"
+          className="w-full text-[1.4rem] md:text-[1.2rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41] mb-[1.6rem]"
         />
         <input
           type="number"
@@ -99,7 +99,7 @@ const ContactForm = ({ formTranslate, formContactData, code }) => {
           value={form.number}
           onChange={handleChange}
           placeholder={formTranslate?.phone_number}
-          className="w-full text-[1.4rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41] mb-[1.6rem]"
+          className="w-full text-[1.4rem] md:text-[1.2rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41] mb-[1.6rem]"
         />
         <input
           type="email"
@@ -110,19 +110,19 @@ const ContactForm = ({ formTranslate, formContactData, code }) => {
           value={form.email}
           onChange={handleChange}
           placeholder={formTranslate?.email}
-          className="w-full text-[1.4rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41] mb-[1.6rem]"
+          className="w-full text-[1.4rem] md:text-[1.2rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41] mb-[1.6rem]"
         />
         <textarea
-          name="message"  
+          name="message"
           id="message"
           value={form.message}
           onChange={handleChange}
           placeholder={formTranslate?.your_message}
           rows={5}
-          className="w-full text-[1.4rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41]"
+          className="w-full text-[1.4rem] md:text-[1.2rem] font-[400] border-[1px] border-[#BFC8CA] rounded-[0.4rem] outline-none py-[1.4rem] pl-[2rem] placeholder:text-[#011E41]"
         />
 
-        <button className="flex flex-row justify-center items-center gap-[1.2rem] mt-[4rem] w-full bg-[#011E41] py-[1.3rem] text-[#FFFFFF] text-[1.4rem] font-[500] transition hover:bg-[#808080]">
+        <button className="flex flex-row justify-center items-center gap-[1.2rem] mt-[4rem] md:mt-[2rem] w-full bg-[#011E41] py-[1.3rem] text-[#FFFFFF] text-[1.4rem] md:text-[1.2rem] font-[500] transition hover:bg-[#808080]">
           {loading ? formTranslate?.sending_form : formTranslate?.send_form}
           <Image
             width={24}

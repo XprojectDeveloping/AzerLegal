@@ -13,7 +13,7 @@ const BloqNews = ({ data, lang }) => {
             </h2>
             <div>
               <Link
-                className="flex items-center gap-[1.2rem] sm:gap-[rem] text-[1.4rem] md:text-[1.2rem] font-[500] border-[1px] border-[#011E41] rounded-[0.4rem] py-[1.3rem] px-[4rem] sm:p-[1.5rem]"
+                className="flex items-center gap-[0.9rem] sm:gap-[1rem] text-[1.4rem] md:text-[1.2rem] font-[500] border-[1px] border-[#011E41] rounded-[0.4rem] py-[1.3rem] sm:py-[0.9rem] px-[4rem] sm:px-[2rem]"
                 href={"/xeberler"}
               >
                 {lang?.all}
