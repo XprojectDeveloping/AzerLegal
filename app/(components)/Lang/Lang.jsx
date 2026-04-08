@@ -1,7 +1,7 @@
+"use client";
 import { FaAngleDown } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import Image from "next/image";
 
 const Lang = ({ toggle, switchLang, langs, scrolledFromTop }) => {
   const [language, setLanguage] = useState("az");
